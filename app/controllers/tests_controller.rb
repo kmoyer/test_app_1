@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
   def index
-    @tests = Test.page(params[:page]).per(10)
+    @q = Test.ransack(params[:q])
+    @tests = @q.result(:distinct => true).page(params[:page]).per(10)
 
     render("tests/index.html.erb")
   end
