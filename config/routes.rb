@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root :to => "tests#index"
   # Routes for the Test resource:
   # CREATE
